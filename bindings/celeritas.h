@@ -14,9 +14,13 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-
 // Forward Declarations
 typedef struct core core;
+
+// Lifecycle functions
+void core_bringup();
+void core_shutdown();
+bool should_window_close();
 
 // Handles
 typedef uint32_t model_handle;
@@ -25,20 +29,18 @@ typedef uint32_t model_handle;
 typedef struct vec2 { float x, y; } vec2;
 typedef struct vec3 { float x, y, z; } vec3;
 typedef struct vec4 { float x, y, z, w; } vec4;
-typedef struct mat4 { float data[16]; } mat4;
+// typedef struct mat4 { float data[16]; } mat4;
 typedef struct transform3d { vec3 translation; vec4 rotation; float scale; } transform3d;
-
-// Lifecycle functions
-void core_bringup();
-void core_shutdown();
-bool should_window_close();
 
 void render_frame_begin();
 void render_frame_draw();
 void render_frame_end();
 
 // Assets
-model_handle model_load(const char* filepath);
+int model_load(const char* filepath);
+// TODO: support typedefs: uint32_t or model_handle
+
+/* -> move this down as we get more of bindgen working
 
 // Rendering
 typedef struct render_entity {
@@ -61,3 +63,5 @@ void scene_set_camera(vec3 pos, vec3 front);
 // Immediate mode drawing
 
 // Input
+
+*/
