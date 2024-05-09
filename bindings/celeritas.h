@@ -63,5 +63,9 @@ void scene_set_camera(vec3 pos, vec3 front);
 // Immediate mode drawing
 
 // Input
+int get_mouse_x();
+int get_mouse_y();
+bool get_mouse_left();
+bool get_mouse_right();
 
 */

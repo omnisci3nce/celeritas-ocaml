@@ -1,6 +1,6 @@
 (lang dune 3.14)
 
-(name celeritas_bindings)
+(name celeritas_ocaml)
 
 (generate_opam_files true)
 
@@ -16,7 +16,7 @@
 (documentation https://url/to/documentation)
 
 (package
- (name celeritas_bindings)
+ (name celeritas_ocaml)
  (synopsis "A short synopsis")
  (description "A longer description")
  (depends ocaml dune)
