@@ -1,0 +1,4 @@
+(executable
+ (public_name celeritas_bindings)
+ (name main)
+ (libraries celeritas_bindings))
