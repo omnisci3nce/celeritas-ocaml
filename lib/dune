@@ -1,3 +1,4 @@
 (library
- (name celeritas)
- (libraries celeritas_bindings ctypes ctypes-foreign))
+ (name celeritas_ocaml)
+ (public_name celeritas_ocaml)
+ (libraries ctypes ctypes-foreign))

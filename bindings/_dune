@@ -1,5 +1,5 @@
 (library
- (name celeritas_bindings)
+ (name bindings)
  (libraries bindgen))
 
 ; (rule
