@@ -1,10 +1,5 @@
 open Ctypes
-(* open Foreign *)
-
-module Impl = struct
-  let core_bringup () = ()
-  let core_shutdown () = ()
-end
+open Foreign
 
 module Vector3 = struct
   type t
@@ -22,4 +17,16 @@ module Vector3 = struct
     setf v x z';
     v
 
+end
+
+module Impl = struct
+  let lib =
+    Dl.dlopen ~filename:"./dllcore.so"
+      ~flags:Dl.[ RTLD_NOW; RTLD_GLOBAL ]
+
+  let core_bringup =        foreign "core_bringup"  (void @-> returning void) ~from:lib
+  let core_shutdown =       foreign "core_shutdown" (void @-> returning void) ~from:lib
+  let should_window_close = foreign "should_exit"   (void @-> returning bool) ~from:lib
+  let frame_begin =         foreign "frame_begin"   (void @-> returning void) ~from:lib
+  let frame_end =           foreign "frame_end"     (void @-> returning void) ~from:lib
 end

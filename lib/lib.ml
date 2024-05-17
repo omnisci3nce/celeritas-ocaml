@@ -1,4 +1,4 @@
-open Core_intf
+include Core_intf
 
 type binding_backend = Bindgen | Ctypes
 
