@@ -1,6 +1,6 @@
 open Celeritas_ocaml.Lib
 
-let backend_module = get_backend (Ctypes)
+let backend_module = get_backend Ctypes
 
 let rec main_loop (module Cel : Core) =
   match Cel.should_window_close () with
